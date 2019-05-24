@@ -25,6 +25,8 @@ See the examples folder for sample code.
   [http://support.robotis.com/en/product/dynamixel/communication/dxl_packet.htm](http://support.robotis.com/en/product/dynamixel/communication/dxl_packet.htm)
 * Instruction Packet Examples<br/>
   [http://support.robotis.com/en/product/dynamixel/communication/dxl_instruction.htm](http://support.robotis.com/en/product/dynamixel/communication/dxl_instruction.htm)
+* FSR<br/>
+  [http://support.robotis.com/en/product/darwin-op/references/reference/hardware_specifications/electronics/optional_components/fsr.htm](http://support.robotis.com/en/product/darwin-op/references/reference/hardware_specifications/electronics/optional_components/fsr.htm)
 
 ## Attribution
 Original code by J.Teda [https://code.google.com/p/slide-33/](https://code.google.com/p/slide-33/)
