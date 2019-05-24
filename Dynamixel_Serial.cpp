@@ -684,10 +684,32 @@ unsigned int DynamixelClass::readTemperature(unsigned char ID){
     }
 }
 
+unsigned int DynamixelClass::readFSRData(unsigned char ID){
+
+    Instruction_Packet_Array[0] = ID;
+    Instruction_Packet_Array[1] = READ_FSR_DATA_LENGTH;
+    Instruction_Packet_Array[2] = COMMAND_READ_DATA;
+    Instruction_Packet_Array[3] = RAM_FSR_CENTRAL_X;
+    Instruction_Packet_Array[4] = READ_TWO_BYTE_LENGTH;
+
+    clearRXbuffer();
+
+    transmitInstructionPacket();
+    readStatusPacket();
+
+    if (Status_Packet_Array[2] == 0){               // If there is no status packet error return value                                         
+        return Status_Packet_Array[3] << 8 | Status_Packet_Array[4];    // Return Center point of the force
+    }else{
+        return (Status_Packet_Array[2] | 0xF000);                           // If there is a error Returns error value
+    } 
+
+
+}
+
 unsigned int DynamixelClass::readPosition(unsigned char ID){
 
     Instruction_Packet_Array[0] = ID;
-    Instruction_Packet_Array[1] = READ_POS_LENGTH;
+    Instruction_Packet_Array[1] = READ_FSR_DATA_LENGTH;
     Instruction_Packet_Array[2] = COMMAND_READ_DATA;
     Instruction_Packet_Array[3] = RAM_PRESENT_POSITION_L;
     Instruction_Packet_Array[4] = READ_TWO_BYTE_LENGTH;
@@ -697,7 +719,7 @@ unsigned int DynamixelClass::readPosition(unsigned char ID){
     transmitInstructionPacket();
     readStatusPacket();
 
-    if (Status_Packet_Array[2] == 0){               // If there is no status packet error return value                                          // If there is no status packet error return value
+    if (Status_Packet_Array[2] == 0){               // If there is no status packet error return value          
         return Status_Packet_Array[4] << 8 | Status_Packet_Array[3];    // Return present position value
     }else{
         return (Status_Packet_Array[2] | 0xF000);                           // If there is a error Returns error value

@@ -75,6 +75,31 @@ Version 2.2
 #define RAM_PUNCH_L                     0x30
 #define RAM_PUNCH_H                     0x31
 
+//#########################################################################
+//############# define - Dynamixel OP2 FSR Hex code table #################
+// EEPROM AREA (Same as for Servo)
+#define EEPROM_MODEL_NUMBER_L_FSR       0x00
+#define EEPROM_MODEL_NUMBER_H_FSR       0x01
+#define EEPROM_VERSION_FSR              0x02
+#define EEPROM_ID_FSR                   0x03
+#define EEPROM_BAUD_RATE_FSR            0x04
+#define EEPROM_RETURN_DELAY_TIME_FSR    0x05
+#define EEPROM_RETURN_LEVEL_FSR         0x10
+// RAM AREA
+#define RAM_FSR_LED                     0x19
+#define RAM_FSR1_L                      0x1A
+#define RAM_FSR1_H                      0x1B
+#define RAM_FSR2_L                      0x1C
+#define RAM_FSR2_H                      0x1D
+#define RAM_FSR3_L                      0x1E
+#define RAM_FSR3_H                      0x1F
+#define RAM_FSR4_L                      0x20
+#define RAM_FSR4_H                      0x21
+#define RAM_FSR_CENTRAL_X               0x22
+#define RAM_FSR_CENTRAL_Y               0x23
+#define RAM_FSR_PRESENT_VOLTAGE         0x2A
+#define RAM_FSR_REGISTER                0x2C
+#define RAM_FSR_LOCK                    0x2F
 
 //#########################################################################
 //################ Instruction commands Set ###############################
@@ -100,6 +125,7 @@ Version 2.2
 #define SET_RETURN_LEVEL_LENGTH         0x04
 #define READ_TEMP_LENGTH                0x04
 #define READ_POS_LENGTH                 0x04
+#define READ_FSR_DATA_LENGTH            0x04 // FSR_Central_X && FSR_Central_Y
 #define READ_LOAD_LENGTH                0x04
 #define READ_SPEED_LENGTH               0x04
 #define READ_VOLT_LENGTH                0x04
@@ -189,6 +215,7 @@ public:
 
     unsigned int readTemperature(unsigned char);
     unsigned int readVoltage(unsigned char);
+    unsigned int readFSRData(unsigned char);
     unsigned int readPosition(unsigned char);
     unsigned int readLoad(unsigned char);
     unsigned int readSpeed(unsigned char);

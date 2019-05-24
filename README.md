@@ -12,6 +12,7 @@ See the examples folder for sample code.
 * 28 June 2012 - Dynamixel Library re-written from the ground up... there is no longer missed commands set to the servo.
 * 10 April 2012 - Dynamixel Library now has example of how to set-up and program a Dynamixel Servo via a Arduino
 * 17 January 2012 - Library and Arduino sketch in download section updated to work with Ardunio 1.0
+* 24 May 2019 - FSR code added
 
 ## More Information
 * Robotis e-Manual<br/>
@@ -27,6 +28,7 @@ See the examples folder for sample code.
 
 ## Attribution
 Original code by J.Teda [https://code.google.com/p/slide-33/](https://code.google.com/p/slide-33/)
+FSR data code by G.Vasilyev
 
 ## License
 Released under LGPL, see `LICENSE.txt`
